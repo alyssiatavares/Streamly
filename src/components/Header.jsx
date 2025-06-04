@@ -1,13 +1,16 @@
 import React from "react";
 import logoSpotify from "../assets/logo/spotify-logo.png";
+import { Link } from "react-router-dom";
 
 const Header = () => {
   return (
     <div className="header">
-      <img src={logoSpotify} alt="logo-spotify" />
-      <a className="header__link" href="">
+      <Link to="/">
+        <img src={logoSpotify} alt="logo-spotify" />
+      </Link>
+      <Link to="/" className="header__link">
         <h1>Streamly</h1>
-      </a>
+      </Link>
     </div>
   );
 };
