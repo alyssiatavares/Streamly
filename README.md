@@ -1,148 +1,113 @@
 ** Overview **
 The project is a full-stack web application built using modern web development technologies, including HTML, CSS, JavaScript, React, Node.js, Express, and MongoDB.
-Project Description
-The project serves as a practical implementation of the concepts taught during the intensive course. It demonstrates the integration of front-end and back-end technologies to create a fully functional web application. The application includes:
 
-A dynamic front-end built with React for a responsive and interactive user interface.
-A back-end powered by Node.js and Express for handling API requests and server-side logic.
-A MongoDB database for persistent data storage and management.
+** Features **
+Responsive Design: The front-end, built with React, ensures a seamless experience across devices.
+Persistent Storage: Tasks are stored in MongoDB, allowing data to persist across sessions.
+RESTful API: The back-end provides endpoints for CRUD operations on tasks.
 
-How It Works
-The application is a full-stack task management platform that allows users to create, read, update, and delete (CRUD) tasks. Below is a detailed explanation of its functionality:
-Front-End (React)
+** How It Works **
 
-User Interface: The front-end is a single-page application (SPA) built with React, providing a seamless and responsive user experience.
-Components: Key components include:
-A task form for creating and editing tasks.
-A task list displaying all tasks with options to edit or delete.
-A navigation bar for easy access to features.
+Streamly is a task management application designed to streamline task organization. Below is a clear explanation of its functionality:
 
-
-Data Interaction: The front-end uses axios to make HTTP requests to the back-end API for fetching tasks, submitting new tasks, updating existing ones, or deleting them.
-State Management: React's state and hooks (e.g., useState, useEffect) manage the dynamic rendering of tasks and user inputs.
-
-Back-End (Node.js + Express)
-
-API Endpoints: The back-end provides a RESTful API with endpoints such as:
-GET /api/tasks: Retrieves all tasks.
-POST /api/tasks: Creates a new task.
-PUT /api/tasks/:id: Updates a specific task by ID.
-DELETE /api/tasks/:id: Deletes a specific task by ID.
+* Front-End (React):
+   Built as a single-page application (SPA) using React, providing a responsive and dynamic user interface.
+   Key components include:
+      - A task form for creating or editing tasks.
+      - A task list displaying all tasks with edit and delete options.
+      - A navigation bar for easy access to features.
+   Uses axios to send HTTP requests to the back-end API for task operations.
+   Manages UI updates with React hooks (useState, useEffect) for real-time rendering.
 
 
-Request Handling: Express middleware (e.g., express.json(), CORS) processes incoming requests and ensures proper data formatting.
-Database Integration: The back-end connects to MongoDB using Mongoose to perform CRUD operations on the task data.
+* Back-End (Node.js + Express):
+   Exposes a RESTful API with endpoints:
 
-Database (MongoDB)
+       GET /api/tasks: Retrieves all tasks.
+       POST /api/tasks: Creates a new task.
+       PUT /api/tasks/:id: Updates a task by its ID.
+       DELETE /api/tasks/:id: Deletes a task by its ID.
+   Employs Express middleware (e.g., express.json(), CORS) to handle requests and format data.
+   Integrates with MongoDB via Mongoose for efficient data management.
 
-Schema: Tasks are stored in a MongoDB collection with a schema defining fields like title, description, status, and createdAt.
-Data Flow: The back-end interacts with MongoDB to store and retrieve task data as JSON, which is then sent to the front-end for display.
-Persistence: MongoDB ensures data is persistently stored, allowing tasks to remain available across sessions.
-
-Example Workflow
-
-Creating a Task:
-The user enters a task title and description in the React form.
-The front-end sends a POST request to /api/tasks with the task data.
-The back-end validates the data, saves it to MongoDB, and returns the created task.
-The front-end updates the task list to display the new task.
-
-Viewing Tasks:
-The front-end sends a GET request to /api/tasks on page load.
-The back-end retrieves all tasks from MongoDB and returns them as JSON.
-The front-end renders the tasks in a list.
+* Database (MongoDB):
+  Stores tasks in a collection with fields like title, description, status, and createdAt.
+  Facilitates data persistence, ensuring tasks are available across sessions.
+  Returns data as JSON for seamless front-end integration.
 
 
-Updating or Deleting:
-The user clicks an "Edit" or "Delete" button next to a task.
-The front-end sends a PUT or DELETE request to the appropriate endpoint with the task ID.
-The back-end updates or removes the task in MongoDB and confirms the action.
-The front-end refreshes the task list to reflect the changes.
+*** Running the Project ***
 
-This architecture ensures a smooth, interactive experience for managing tasks, with clear separation of concerns between the front-end, back-end, and database.
-Technologies Used
+To run Streamly locally, follow these steps:
+Clone the Repository:
 
-Front-End:
-HTML
-CSS
-JavaScript
-React
+       git clone https://github.com/alyssiatavares/Streamly.git
 
+Navigate to the Project Directory:
 
-Back-End:
-Node.js
-Express
+       cd Streamly
+Install Back-End Dependencies:
 
+       cd Back-end
+       npm install
 
-Database:
-MongoDB
+Install Front-End Dependencies:
+
+       cd ../Front-end
+       npm install
+
+Use a MongoDB Atlas URI or a local MongoDB instance.
 
 
-Other Tools:
-npm (package management)
-Axios (HTTP requests)
+Run the Back-End:
+
+       cd Back-end
+       npm start
+
+The API will be available at http://localhost:3001.
+
+Run the Front-End:
+
+       cd Front-end
+       npm start
+
+The app will be accessible at http://localhost:3001.
 
 
+Live Demo: Check out the deployed application at https://streamly-v5o7.onrender.com/.
 
-Prerequisites
-To run this project locally, ensure you have the following installed:
+** Dependencies **
 
-Node.js (v14 or higher)
-MongoDB (local instance or MongoDB Atlas)
-A code editor (e.g., Visual Studio Code)
-Git (for cloning the repository)
+Streamly relies on the following key dependencies:
+React: JavaScript library for building the front-end UI.
+Node.js: JavaScript runtime for the back-end.
+Express: Web framework for handling API routes.
+MongoDB: database for task storage.
+Mongoose: ODM library for MongoDB integration.
+Axios: HTTP client for API requests.
+npm: Package manager for dependency installation.
 
-Installation
+Additional dependencies are listed in the package.json files in the backend and frontend directories. Run npm install in both directories to install them.
 
-Clone the repository: https://github.com/alyssiatavares/Streamly
+** Contributors **
+Alyssia Tavares: Project creator and lead developer.
 
-
-Install dependencies for the back-end:cd backend
-npm install
-
-
-Install dependencies for the front-end:cd ../frontend
-npm install
-
-
-Start the MongoDB server (if running locally).
-Run the back-end server:cd backend
-npm start
-
-
-Run the front-end application:cd frontend
-npm start
-
-
-Deployment
-The application has been deployed and is accessible at https://streamly-v5o7.onrender.com/ To deploy your own instance:
-
-Use a platform like Heroku, Vercel, or Render for the front-end and back-end.
-Set up a MongoDB Atlas cluster for the database.
-Configure environment variables on the deployment platform (e.g., MONGODB_URI, PORT).
-Deploy the front-end and back-end separately, ensuring the front-end is configured to communicate with the back-end API.
-
-Project Structure
-streamly
-├── backend/                # Node.js + Express back-end
-│   ├── routes/             # API routes
-│   ├── models/             # MongoDB schemas
-│   └── server.js           # Main server file
-├── frontend/               # React front-end
-│   ├── src/                # React components, styles, and assets
-│   ├── public/             # Public assets and HTML template
-│   └── package.json        # Front-end dependencies
-├── .gitignore              # Files and folders to ignore in Git
-└── README.md               # Project documentation
-
-Contributing
-Contributions are welcome! To contribute:
-
+ *Ways to Contribute*
+We welcome contributions to enhance Streamly! To contribute:
 Fork the repository.
 Create a new branch (git checkout -b feature/your-feature).
-Make your changes and commit (git commit -m "Add your feature").
-Push to the branch (git push origin feature/your-feature).
-Open a Pull Request.
+Make changes and commit (git commit -m "Add your feature").
+Push to your branch (git push origin feature/your-feature).
+Open a Pull Request (PR) with a detailed description of your changes.
+
+ *Contribution Guidelines:*
+Focus on bug fixes, new features, or documentation improvements.
+Adhere to JavaScript standard style for code consistency.
+Test changes locally before submitting a PR.
+PRs are reviewed weekly; ensure alignment with project goals.
+For bug reports or feature requests, create a GitHub Issue. For security vulnerabilities, contact the maintainer privately via email (not through public issues).
 
 License
+
 This project is licensed under the MIT License.
+
